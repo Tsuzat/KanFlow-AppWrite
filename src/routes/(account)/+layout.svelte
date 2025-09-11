@@ -1,10 +1,18 @@
 <script lang="ts">
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import UserSidebar from '$lib/components/custom/sidebar/AppBar.svelte';
+	import { setBoards, type Board } from '$lib/appwrite/db/boards.svelte';
+	import { onMount } from 'svelte';
 
 	let open = $state(false);
 
 	const { data, children } = $props();
+
+	const boards = setBoards();
+
+	onMount(async () => {
+		await boards.fetch();
+	});
 </script>
 
 <Sidebar.Provider
