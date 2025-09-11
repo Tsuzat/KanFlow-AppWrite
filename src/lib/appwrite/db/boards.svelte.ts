@@ -86,7 +86,10 @@ class Boards {
 			}),
 			{
 				loading: 'Deleting board...',
-				success: 'Board deleted successfully',
+				success: () => {
+					this.#boards = this.#boards.filter((b) => b.$id !== boardId);
+					return 'Deleted Board Successfully';
+				},
 				error: (err) => {
 					//! Add a logger here
 					if (err instanceof AppwriteException) {
