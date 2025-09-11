@@ -156,7 +156,7 @@
 			</span>
 		</div>
 		<dl class="my-20 grid grid-cols-2 gap-10">
-			{#each features as item}
+			{#each features as item, idx (idx)}
 				{@const Icon = item.icon}
 				<div class="col-span-full sm:col-span-2 lg:col-span-1">
 					<div
@@ -264,7 +264,7 @@
 				<CardContent class="space-y-4">
 					<hr class="border-dashed" />
 					<ul class="list-outside space-y-3 text-sm">
-						{#each pricingList.free as item}
+						{#each pricingList.free as item, idx (idx)}
 							<li class="flex items-center gap-2">
 								<Check class="size-3" />
 								{item}
@@ -291,7 +291,7 @@
 					<CardContent class="space-y-4">
 						<hr class="border-dashed" />
 						<ul class="list-outside space-y-3 text-sm">
-							{#each pricingList.pro as item}
+							{#each pricingList.pro as item, idx (idx)}
 								<li class="flex items-center gap-2">
 									<Check class="size-3" />
 									{item}
@@ -335,7 +335,7 @@
 					type="single"
 					class="w-full rounded-2xl border bg-background px-8 py-3 shadow-sm ring-4 ring-muted dark:ring-0"
 				>
-					{#each faqItems as item, index}
+					{#each faqItems as item, index (index)}
 						<AccordionItem
 							value={item.id}
 							class={[faqItems.length - 1 !== index ? 'border-dashed' : 'border-none']}
