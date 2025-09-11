@@ -1,4 +1,24 @@
-import { Loader, Mail, Sun, MoonStar, Plus } from '@lucide/svelte/icons';
+import {
+	Loader,
+	Mail,
+	Sun,
+	MoonStar,
+	Plus,
+	PanelLeft,
+	ChevronsUpDown,
+	BadgeCheck,
+	BadgeX,
+	LogOut,
+	Trash,
+	User,
+	Ellipsis,
+	PinOff,
+	Pin,
+	ExternalLink,
+	Share,
+	ChevronUp,
+	ChevronDown
+} from '@lucide/svelte/icons';
 import Google from './google.svelte';
 import Github from './github.svelte';
 
@@ -9,7 +29,21 @@ const Icons = {
 	loader: Loader,
 	sun: Sun,
 	moon: MoonStar,
-	add: Plus
+	add: Plus,
+	sidebar: PanelLeft,
+	chevronsUpDown: ChevronsUpDown,
+	badgeCheck: BadgeCheck,
+	badgeX: BadgeX,
+	logOut: LogOut,
+	trash: Trash,
+	person: User,
+	ellipsis: Ellipsis,
+	pinOff: PinOff,
+	pin: Pin,
+	externalLink: ExternalLink,
+	share: Share,
+	chevronUp: ChevronUp,
+	chevronDown: ChevronDown
 };
 
 export default Icons;
