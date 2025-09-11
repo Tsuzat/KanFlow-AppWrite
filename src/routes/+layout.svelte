@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '@fontsource-variable/dm-sans';
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.png';
 	import { ModeWatcher } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';
 
@@ -10,6 +10,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>KanFlow - Best Personal Kanban App</title>
 </svelte:head>
 
 <ModeWatcher />
