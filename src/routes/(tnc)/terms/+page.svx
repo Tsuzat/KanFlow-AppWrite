@@ -1,0 +1,88 @@
+<svelte:head>
+    <title>Terms & Conditions | KanFlow</title>
+</svelte:head>
+
+# Terms and Conditions
+
+**Last updated:** Sept 11, 2025
+
+Welcome to **KanFlow** (the “Service”), a collaborative Kanban board application accessible at [https://kanflow.pro](https://kanflow.pro). By accessing or using KanFlow (via our website or app), you agree to these Terms and Conditions (“Terms”). If you do not agree with any part of these Terms, please do not use our Service. These Terms incorporate by reference our Privacy Policy and any future modifications thereto.
+
+## Eligibility
+
+- You must be **at least 13 years old** to use KanFlow. By using the Service, you represent and warrant that you are 13 or older. Persons under 13 are not permitted to use the Service.
+- If you are over 13 but under 18 (in many jurisdictions the age of majority), you must have permission from a parent or legal guardian to use KanFlow. By consenting, the parent or guardian takes full responsibility for the minor’s online conduct and compliance with these Terms.
+
+## Account Registration
+
+- To access KanFlow’s features, you may need to register for an account using a valid email address. You agree to provide accurate and current information and keep your password secure. You are responsible for all activities that occur under your account.
+- You agree not to share your login credentials or allow anyone else to access your account. KanFlow reserves the right to suspend or terminate accounts if we detect unauthorized or fraudulent use.
+
+## Subscription Plans
+
+- KanFlow offers a **free plan** and a **Pro (paid) plan**. On the **Free Plan**, each user may create up to **3 boards**, **12 sections**, and **50 cards**. The free plan does **not** include profile pictures or task/comment features.
+- **Pro Plan (Paid):** Users can subscribe to our Pro plan to unlock additional features. Pro users enjoy **unlimited boards, sections, cards, tasks, and comments**, the ability to add a profile picture, and exclusive access to a Discord support channel. Details of current pricing and features are provided on our website. KanFlow may modify features and limits from time to time; the current limits described above apply unless we notify you otherwise.
+
+## Payments and Billing
+
+- **Subscription Payments:** Payments for Pro subscriptions are processed via **Stripe** through our payment partner Polar.sh. By choosing a paid plan, you authorize KanFlow (via the payment processor) to charge the applicable fees to your chosen payment method. You agree to pay all fees and applicable taxes associated with your subscription.
+- **Recurring Billing:** Pro subscriptions automatically renew at the end of each billing period. We will automatically charge your payment method for the recurring subscription fee until you cancel. If you do not want to continue the service, you must cancel before your next billing date through your KanFlow account settings. Cancelling stops further charges, but you will retain Pro access until the end of your current paid term.
+- **Refunds:** Subscription fees are generally **non-refundable**. For example, if you cancel your Pro subscription, you may continue to use Pro features until the end of your paid period, but you will **not** receive a prorated refund for any unused time. Except as required by law or as expressly provided herein, KanFlow will not refund any fees that have already been paid.
+- **Payment Processor Disclaimer:** We use Stripe (via Polar.sh) to process payments. You acknowledge that any issues or errors in payment processing (e.g. failed transactions, duplicate charges) are outside our control. As Polar’s terms state, “we use Stripe, Inc. as our Payment Processor” and we are not liable for any errors by the payment processor. Any billing disputes should be addressed in accordance with the payment processor’s dispute resolution procedures.
+
+## User Content and Licenses
+
+- **Your Content:** KanFlow allows you to create and store content such as board names, cards, tasks, comments, and profile information (“Your Content”). You retain all intellectual property rights in Your Content.
+- **License to KanFlow:** By submitting or posting any content to KanFlow, you grant KanFlow a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use, reproduce, adapt, modify, publish, and distribute that content in order to provide and improve the Service. For example, your cards and comments need to be stored and displayed to collaborators, and this license enables KanFlow to do so.
+- **Content Ownership:** You keep ownership of all content you post. We do not claim ownership over Your Content, but you also grant us the above license so that we can legally host and display it.
+- **Content Restrictions:** You represent and warrant that you have all necessary rights to any content you post on KanFlow. Your Content must not infringe any third party’s intellectual property or violate any law. For instance, you warrant that your uploaded images or text are your own or used with permission.
+- **Responsibility for Content:** You are solely responsible for all content you add to KanFlow. KanFlow does not actively moderate or pre-screen user content, and we have no obligation to police it. All user content is made available “AS IS” and at your own risk. KanFlow does **not** guarantee the accuracy, completeness, or legality of user-generated content, nor does KanFlow endorse any opinions expressed by other users. KanFlow reserves the right (but is not required) to remove or refuse any content that violates these Terms or applicable laws.
+
+## Prohibited Conduct
+
+You agree **not** to use KanFlow to:
+
+- Upload, post, or share any content that is illegal, defamatory, harassing, hateful, obscene, or otherwise objectionable.
+- Infringe the intellectual property or privacy rights of others.
+- Impersonate any person or entity, or falsely state or misrepresent your affiliation.
+- Transmit viruses, malware, or any other harmful code.
+- Attempt to gain unauthorized access to KanFlow systems or networks, or to interfere with the operation of the Service.
+- Engage in spamming, phishing, or other forms of unsolicited communication.
+- Circumvent any limitations on the Service (e.g. create multiple accounts to bypass usage limits).
+
+We may investigate and take appropriate action (including account suspension or termination) if we believe a user has violated these rules or the law. Any offensive or illegal content you encounter should be reported to us immediately.
+
+## Analytics and Data Collection
+
+- KanFlow may use cookies, web beacons, or similar tracking technologies to collect analytics about how you use the Service (for example, by using Google Analytics). We may also collect certain device or IP-based location information to provide and personalize the Service. Any data collection is governed by our Privacy Policy. By using KanFlow, you consent to such collection and use of information as described in our Privacy Policy.
+
+## Termination
+
+- **By KanFlow:** We reserve the right to terminate or suspend your account and access to the Service at any time, without notice and for any reason, including if you violate these Terms. For example, like many services, we can disable accounts that engage in prohibited conduct or that we believe pose a risk. KanFlow will not be liable to you or any third party for any termination or suspension of your account.
+- **By You:** You may cancel your account at any time via your account settings. If you cancel a paid subscription, you can continue using Pro features until the end of your current billing period, after which your account will revert to the Free Plan. You will not receive a refund for any fees already paid.
+- **Effect of Termination:** Upon termination of your account (for any reason), your right to use the Service ceases immediately. KanFlow may delete or deactivate your account and content. Any licenses and rights granted to you under these Terms will immediately cease.
+
+## Disclaimers and Limitation of Liability
+
+- **No Warranties:** KanFlow is provided **“AS IS”** and **“AS AVAILABLE”**, with all faults. We disclaim all warranties, whether express or implied, to the fullest extent permitted by law. This includes, without limitation, any implied warranties of merchantability, fitness for a particular purpose, non-infringement, or any course of performance or usage of trade. We do not guarantee that the Service will be secure, error-free, or uninterrupted. Any content or information you obtain through the Service is at your own risk.
+- **Limitation of Liability:** To the maximum extent allowed by law, KanFlow (and its officers, directors, employees, and agents) will **not** be liable for any indirect, incidental, special, consequential or punitive damages, or any loss of profits, data, or goodwill, arising out of or related to your use of (or inability to use) KanFlow. Our total liability (if any) for any claim related to these Terms or the Service will not exceed the amount you paid KanFlow in the past six months, or \$100, whichever is less.
+
+## Indemnification
+
+You agree to indemnify, defend and hold harmless KanFlow, its affiliates and their respective officers, directors, employees, and agents, from and against any claims, damages, losses, liabilities, or costs (including reasonable attorneys’ fees) arising from (a) your violation of these Terms, (b) your use of the Service, (c) your content or data, or (d) your violation of any law or the rights of a third party.
+
+## Governing Law
+
+These Terms shall be governed by and construed in accordance with the laws of the Republic of India. Any dispute arising out of or related to these Terms or your use of KanFlow shall be subject to the exclusive jurisdiction of the courts located in India.
+
+## Changes to Terms
+
+KanFlow may revise or update these Terms at any time. If we make material changes, we will provide notice (for example, by posting an announcement on our website or sending an email). Your continued use of KanFlow after any change means you accept the new Terms. If you do not agree to the revised Terms, you must stop using the Service.
+
+## Contact Information
+
+If you have any questions about these Terms, please contact us at **[contact@kanflow.pro](mailto:contact@kanflow.pro)**.
+
+**KanFlow** ([https://kanflow.pro](https://kanflow.pro)) – _Your collaborative Kanban solution._
+
+**Sources:** We have drawn on standard industry terms and analogous agreements for these Terms. For example, age and minor consent requirements are similar to those in other service agreements; user-content licensing and warranty clauses mirror language used by major platforms; payment and refund provisions align with Polar/Stripe terms; and disclaimers and termination rights follow common practice. Governing law is set as India in line with local guidelines.

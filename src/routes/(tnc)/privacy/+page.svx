@@ -1,0 +1,162 @@
+<svelte:head>
+    <title>Privacy Policy | KanFlow</title>
+</svelte:head>
+
+# Privacy Policy
+
+**Last updated:** Sept 11, 2025
+
+At **KanFlow** (`https://kanflow.pro`), we are committed to protecting your privacy. This Privacy Policy explains what personal information we collect, how we use it, how we store it, and your rights in relation to that information. By using our Service, you consent to the practices described in this Policy.
+
+If you have any questions, contact us at **[contact@kanflow.pro](mailto:contact@kanflow.pro)**.
+
+---
+
+## 1. Who We Are
+
+KanFlow is a collaborative kanban application that enables users to create and manage task boards with other users. It is operated from **India** and primarily serves a global audience aged **13 and above**.
+
+---
+
+## 2. Information We Collect
+
+We collect the following categories of personal and non-personal information:
+
+a. **Account and Authentication Data**
+
+- Email address (required for login)
+- OAuth profile data (e.g. Google name, avatar if applicable)
+- User ID and session tokens
+
+b. **User-Generated Content**
+
+- Cards, Sections, Board, Comments (Pro users only), Tasks (Pro users only)
+- Profile picture (Pro users only)
+
+c. **Usage and Analytics Data**
+
+- Pages visited, features used, session duration
+- Click behavior and interaction logs
+- Referral sources and device/browser information
+
+d. **Location Data**
+
+- IP-based approximate geographic location
+
+---
+
+## 3. How We Use Your Information
+
+We use your information for the following purposes:
+
+- To provide, maintain and improve the Service
+- To authenticate and manage your account
+- To support collaboration features (sharing boards, commenting)
+- To analyze usage trends and improve user experience
+- To communicate with you (e.g. updates, billing, support)
+- To manage paid subscriptions and payments
+- To enforce our Terms of Service and prevent abuse
+
+---
+
+## 4. Legal Basis for Processing (Under Indian Law)
+
+Your data is processed based on:
+
+- **Consent**: Given when you sign up or use our features
+- **Contractual necessity**: Required to provide you with services
+- **Legal obligation**: For compliance with applicable laws (e.g. IT Act, and evolving data protection laws)
+- **Legitimate interest**: For security, analytics, and service optimization
+
+---
+
+## 5. Third-Party Services
+
+We share data with trusted third parties to support our operations:
+
+a. **Payments**
+
+- Managed by **Polar.sh**, which uses **Stripe**
+- Billing info, subscription history, and customer portal data is handled directly by these platforms
+
+b. **Analytics**
+
+- We use tools (e.g., Google Analytics or similar) to collect anonymized usage data via cookies
+
+c. **Community Support**
+
+- Pro users may be invited to a **Discord channel**. Participation is optional.
+
+These services have their own privacy policies and handle your data independently.
+
+---
+
+## 6. Cookies and Tracking
+
+We use cookies and local storage to:
+
+- Maintain your session
+- Remember preferences
+- Measure feature performance
+
+You can control cookie settings in your browser. Disabling cookies may limit functionality.
+
+---
+
+## 7. How We Store and Protect Your Information
+
+We take reasonable security measures to protect your personal data:
+
+- Access control and encryption for sensitive data
+- Hosting on secure, industry-standard infrastructure
+- Limited employee access to user data
+- Regular security reviews
+
+Despite our efforts, no method of data transmission over the internet is 100% secure.
+
+---
+
+## 8. Data Retention
+
+We retain your data:
+
+- As long as your account is active
+- As needed to comply with legal obligations or resolve disputes
+- Deleted upon request or account closure (subject to backups and audit logs)
+
+---
+
+## 9. Your Rights
+
+As a user, especially under Indian privacy norms, you have the right to:
+
+- **Access** the personal data we hold about you
+- **Correct** inaccurate or outdated data
+- **Delete** your account and associated content
+- **Withdraw consent** for non-essential processing
+- **File a complaint** with the appropriate data protection authority if available
+
+To exercise these rights, contact us at [contact@kanflow.pro](mailto:contact@kanflow.pro).
+
+---
+
+## 10. Children’s Privacy
+
+KanFlow is intended for users aged **13 and above**. We do not knowingly collect data from children under 13. If you believe a child has used the service without appropriate consent, contact us for immediate deletion of the account.
+
+---
+
+## 11. Changes to This Policy
+
+We may update this Privacy Policy to reflect legal, technical, or business changes. When we do, we will post the updated date at the top. Continued use of the Service means you accept the revised policy.
+
+We recommend reviewing this page periodically.
+
+---
+
+## 12. Contact Us
+
+If you have any questions or concerns about this policy or your data, please contact:
+
+📧 **[contact@kanflow.pro](mailto:contact@kanflow.pro)**
+🌐 **[https://kanflow.pro](https://kanflow.pro)**
