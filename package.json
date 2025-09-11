@@ -50,6 +50,7 @@
 	"dependencies": {
 		"@fontsource-variable/dm-sans": "^5.2.6",
 		"@lucide/svelte": "^0.543.0",
+		"appwrite": "^20.0.0",
 		"mode-watcher": "^1.1.0"
 	}
 }
