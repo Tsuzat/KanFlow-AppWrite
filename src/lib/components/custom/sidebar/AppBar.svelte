@@ -6,36 +6,21 @@
 	import { cn, getKeyboardShortcut } from '$lib/utils';
 	import { page } from '$app/state';
 	import { Home } from '@lucide/svelte';
-	import { useBoards } from '$lib/appwrite/db/boards.svelte';
-	import { toast } from 'svelte-sonner';
 	import Pinned from './Pinned.svelte';
 	import AllBoards from './AllBoards.svelte';
+	import NewBoard from '../dialogs/NewBoard.svelte';
 	interface Props {
 		user: Models.User<Models.Preferences>;
 	}
 
 	const { user }: Props = $props();
 	let open = $state(false);
-	const boards = useBoards();
 
 	function handleKeydown(e: KeyboardEvent) {
 		if ((e.metaKey || e.ctrlKey) && e.key === 'b') {
 			e.preventDefault();
 			open = true;
 		}
-	}
-
-	async function createSampleBoard() {
-		const id = toast.loading('Creating board');
-		const created = await boards.create({
-			icon: 'Kanban',
-			name: 'Sample Board',
-			description: 'This is a sample board',
-			pinned: true,
-			owner: user.$id
-		});
-		if (created) toast.success('Create board successfully', { id });
-		else toast.dismiss(id);
 	}
 </script>
 
@@ -69,8 +54,12 @@
 		<Pinned />
 		<AllBoards />
 	</Sidebar.Content>
+	<NewBoard bind:open {user} />
 	<Sidebar.Footer class="!bg-background">
-		<Sidebar.MenuButton class="bg-primary transition-all duration-500" onclick={createSampleBoard}>
+		<Sidebar.MenuButton
+			class="bg-primary transition-all duration-500"
+			onclick={() => (open = true)}
+		>
 			{#snippet tooltipContent()}
 				<span class="font-semibold">Create Board</span>
 			{/snippet}
