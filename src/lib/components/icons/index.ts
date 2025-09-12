@@ -17,7 +17,21 @@ import {
 	ExternalLink,
 	Share,
 	ChevronUp,
-	ChevronDown
+	ChevronDown,
+	X,
+	Cloud,
+	Info,
+	Square,
+	SquareCheck,
+	Archive,
+	ScanEye,
+	PlusCircle,
+	ChevronsDown,
+	ChevronsUp,
+	Pencil,
+	ArrowLeftRight,
+	ArrowUpDown,
+	CalendarDays
 } from '@lucide/svelte/icons';
 import Google from './google.svelte';
 import Github from './github.svelte';
@@ -43,7 +57,22 @@ const Icons = {
 	externalLink: ExternalLink,
 	share: Share,
 	chevronUp: ChevronUp,
-	chevronDown: ChevronDown
+	chevronDown: ChevronDown,
+	clear: X,
+	cloud: Cloud,
+	info: Info,
+	active: Square,
+	completed: SquareCheck,
+	archive: Archive,
+	review: ScanEye,
+	addCircle: PlusCircle,
+	low: ChevronsDown,
+	medium: ChevronsUpDown,
+	high: ChevronsUp,
+	edit: Pencil,
+	arrowLeftRight: ArrowLeftRight,
+	arrowUpDown: ArrowUpDown,
+	calendar: CalendarDays
 };
 
 export default Icons;

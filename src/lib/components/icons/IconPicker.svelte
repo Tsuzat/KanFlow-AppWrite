@@ -11,10 +11,10 @@
 	let iconNames = $state(allLucideIcons);
 
 	interface Props {
-		currentIcon: keyof typeof icons;
+		currentIcon: keyof typeof icons | string;
 		class?: string;
 		side?: 'left' | 'right' | 'top' | 'bottom';
-		onClose?: (icon: keyof typeof icons) => void;
+		onClose?: (icon: keyof typeof icons | string) => void;
 	}
 	let {
 		currentIcon = $bindable(),
