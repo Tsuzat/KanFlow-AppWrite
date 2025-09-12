@@ -42,7 +42,6 @@ class Boards {
 				tableId: PUBLIC_BOARDS_TABLE_ID
 			});
 			this.#boards = res.rows;
-			console.log('BOARDS = ', this.#boards);
 		} catch (error) {
 			if (error instanceof AppwriteException) {
 				//! TODO: Add a logger here
@@ -57,14 +56,13 @@ class Boards {
 		board: Partial<Board> & { icon: string; name: string; owner: string }
 	): Promise<boolean> {
 		try {
-			const res = await databases.createRow({
+			const res = await databases.createRow<Board>({
 				databaseId: PUBLIC_DATABASE_ID,
 				tableId: PUBLIC_BOARDS_TABLE_ID,
 				rowId: ID.unique(),
 				data: board
 			});
-			const newBoard: Board = { ...board, ...res };
-			this.boards = [...this.#boards, newBoard];
+			this.boards = [...this.#boards, res];
 			return true;
 		} catch (error) {
 			if (error instanceof AppwriteException) {
@@ -91,12 +89,10 @@ class Boards {
 					return 'Deleted Board Successfully';
 				},
 				error: (err) => {
-					//! Add a logger here
-					if (err instanceof AppwriteException) {
-						return err.message;
-					} else {
-						return 'Something went wrong';
-					}
+					//! TODO: Add a logger here
+					console.log(err);
+					if (err instanceof AppwriteException) return err.message;
+					else return 'Something went wrong';
 				}
 			}
 		);
