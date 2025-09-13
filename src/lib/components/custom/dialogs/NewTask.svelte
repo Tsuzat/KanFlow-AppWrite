@@ -10,6 +10,7 @@
 	import DatePicker from '../DatePicker.svelte';
 	import { type DateValue } from '@internationalized/date';
 	import { generateKeyBetween } from '$lib/utils';
+	import PrioritySelector from '../utils/PrioritySelector.svelte';
 
 	interface Props {
 		open: boolean;
@@ -24,7 +25,7 @@
 	let due_date = $state<DateValue>();
 	let priority = $state<Priority>(Priority.Low);
 	const order = $derived.by(() => {
-		const tasksInSec = tasks.tasks.filter((t) => t.section.$id === section.$id);
+		const tasksInSec = tasks.tasks.filter((t) => t.section === section.$id);
 		const lastCardOrder = tasksInSec.length > 0 ? tasksInSec[tasksInSec.length - 1].order : null;
 		return generateKeyBetween(lastCardOrder, null);
 	});
@@ -46,7 +47,7 @@
 			priority,
 			order,
 			section: section.$id,
-			board: section.board as string
+			board: section.board
 		});
 		isLoading = false;
 		open = false;
@@ -89,6 +90,10 @@
 			<div class="grid grid-cols-4 items-center gap-4">
 				<Label for="dueDate" class="text-muted-foreground">Due Date</Label>
 				<DatePicker bind:value={due_date} />
+			</div>
+			<div class="grid grid-cols-4 items-center gap-4">
+				<Label for="priority" class="text-muted-foreground">Priority</Label>
+				<PrioritySelector bind:priority />
 			</div>
 			<Dialog.Footer class="mt-4">
 				<Dialog.Close class={buttonVariants({ variant: 'outline' })}>Close</Dialog.Close>
