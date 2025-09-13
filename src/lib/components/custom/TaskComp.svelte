@@ -43,22 +43,39 @@
 	async function handleMoveUpDown(task: Task, dir: 'UP' | 'DOWN') {
 		const tasksInSections = tasks.tasks.filter((t) => t.section === section.$id);
 		const taskIdx = tasksInSections.findIndex((t) => t.$id === task.$id);
-		let taskForExchange: Task;
+
 		if (taskIdx === -1) return;
+
+		let newOrder: string;
+
 		if (dir === 'UP') {
+			// If task is already at the top, can't move up
 			if (taskIdx === 0) return;
-			taskForExchange = tasksInSections[taskIdx - 1];
+
+			// Get the task above and the one above that (if exists)
+			const taskAbove = tasksInSections[taskIdx - 1].order;
+			const taskAboveAbove = taskIdx >= 2 ? tasksInSections[taskIdx - 2].order : null;
+
+			// Generate new order between taskAboveAbove and taskAbove
+			newOrder = generateKeyBetween(taskAboveAbove, taskAbove);
 		} else {
+			// If task is already at the bottom, can't move down
 			if (taskIdx === tasksInSections.length - 1) return;
-			taskForExchange = tasksInSections[taskIdx + 1];
+
+			// Get the task below and the one below that (if exists)
+			const taskBelow = tasksInSections[taskIdx + 1].order;
+			const taskBelowBelow =
+				taskIdx + 2 < tasksInSections.length ? tasksInSections[taskIdx + 2].order : null;
+
+			// Generate new order between taskBelow and taskBelowBelow
+			newOrder = generateKeyBetween(taskBelow, taskBelowBelow);
 		}
-		const tmpOrder = task.order;
-		task = { ...task, order: taskForExchange.order };
-		taskForExchange = { ...taskForExchange, order: tmpOrder };
+
+		// Update only the current task with the new order
+		task = { ...task, order: newOrder };
 		syncing = true;
 		try {
 			await tasks.update(task);
-			await tasks.update(taskForExchange);
 		} catch (error) {
 			//! TODO: Add logger here
 			console.error(error);
