@@ -9,6 +9,8 @@
 	import { dndzone, type DndEvent } from 'svelte-dnd-action';
 	import TaskComp from './TaskComp.svelte';
 	import NewTask from './dialogs/NewTask.svelte';
+	import { toast } from 'svelte-sonner';
+	import { generateKeyBetween } from '$lib/utils';
 
 	interface Props {
 		section: Section;
@@ -22,7 +24,11 @@
 
 	let open = $state(false);
 
-	let tasksForSection = $derived(tasks.tasks.filter((t) => t.section === section.$id));
+	let tasksForSection = $derived(
+		tasks.tasks
+			.filter((t) => t.section === section.$id)
+			.sort((a, b) => a.order.localeCompare(b.order))
+	);
 
 	const SectionIcon = $derived.by(() => {
 		switch (section.status) {
@@ -60,9 +66,52 @@
 		tasksForSection = items;
 	}
 
-	function handleDrop(event: CustomEvent<DndEvent<Task>>) {
-		const { items } = event.detail;
-		tasksForSection = items;
+	/**
+	 * !FIXME: Can we prevent the DB call if the tasks are same ??
+	 */
+	async function handleDrop(event: CustomEvent<DndEvent<Task>>) {
+		const { items, info } = event.detail;
+
+		// 1. Identify the task that was moved.
+		const draggedTaskId = info.id;
+		const taskThatWasMoved = items.find((task) => task.$id === draggedTaskId);
+
+		if (!taskThatWasMoved) {
+			console.error('Dragged task not found in the final items list. This should not happen.');
+			return;
+		}
+
+		// 2. Determine its new position and the order of its new neighbors.
+		const newTaskIndex = items.findIndex((c) => c.$id === draggedTaskId);
+
+		// Get the order of the task *before* it in the new list.
+		const prevTaskOrder = newTaskIndex > 0 ? items[newTaskIndex - 1].order : null;
+
+		// Get the order of the task *after* it in the new list.
+		const nextTaskOrder = newTaskIndex < items.length - 1 ? items[newTaskIndex + 1].order : null;
+
+		// 3. Generate the new lexicographical order key.
+		// Your generateKeyBetween function should handle cases where prevtaskOrder or nexttaskOrder is null.
+		const newOrder = generateKeyBetween(prevTaskOrder, nextTaskOrder);
+
+		console.log(
+			`New calculated order for "${taskThatWasMoved.name}": ${newOrder} (between ${prevTaskOrder || 'null'} and ${nextTaskOrder || 'null'})`
+		);
+
+		// 4. Prepare the payload for the database update.
+		taskThatWasMoved.order = newOrder;
+		taskThatWasMoved.section = section.$id;
+
+		syncing = true;
+		try {
+			await tasks.update(taskThatWasMoved);
+			tasksForSection = items;
+		} catch (error) {
+			console.error('Error while reordering task:', error);
+			toast.error('Failed to reorder task');
+		} finally {
+			syncing = false;
+		}
 	}
 </script>
 
@@ -75,7 +124,9 @@
 			<span>
 				{section.name}
 			</span>
-			<span class="text-sm font-semibold" style:color={`${section.color}`}>{2}</span>
+			<span class="text-sm font-semibold" style:color={`${section.color}`}
+				>{tasksForSection.length}</span
+			>
 		</span>
 		<span class="flex items-center gap-1">
 			<SimpleTooltip content="Add Task">
