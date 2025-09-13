@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { account } from '$lib/appwrite';
 	import AppLogo from './AppLogo.svelte';
-	import Button, { buttonVariants } from '../ui/button/button.svelte';
+	import { Button, buttonVariants } from '../ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import Icons from '../icons';
-	import Avatar from './Avatar.svelte';
 	import ModeToggler from './ModeToggler.svelte';
-	import { goto } from '$app/navigation';
-	import { signOut } from '$lib/appwrite/oauth';
+	import { onMount } from 'svelte';
+	import type { Models } from 'appwrite';
+
+	let user = $state<Models.User | null>(null);
 
 	const navItems = [
 		{
@@ -27,6 +28,15 @@
 			title: 'FAQs'
 		}
 	];
+
+	onMount(async () => {
+		try {
+			user = await account.get();
+		} catch (error) {
+			//! TODO: Add a logger here
+			console.error(error);
+		}
+	});
 </script>
 
 <nav
@@ -68,37 +78,12 @@
 	</div>
 	<div class="flex items-center gap-4">
 		<ModeToggler />
-
-		{#await account.get()}
-			<Button variant="secondary">
-				<Icons.loader class="animate-spin" />
+		{#if user}
+			<Button href="/home" size="icon" variant="ghost">
+				<Icons.person />
 			</Button>
-		{:then user}
-			{#if user}
-				<DropdownMenu.Root>
-					<DropdownMenu.Trigger class={buttonVariants({ variant: 'ghost', class: 'rounded p-0' })}>
-						<Avatar {user} />
-					</DropdownMenu.Trigger>
-					<DropdownMenu.Content>
-						<DropdownMenu.Label>
-							{user.email}
-						</DropdownMenu.Label>
-						<DropdownMenu.Item onclick={() => goto('/profile')}>
-							<Icons.person />
-							Profile
-						</DropdownMenu.Item>
-						<DropdownMenu.Item onclick={signOut}>
-							<Icons.logOut />
-							Log Out
-						</DropdownMenu.Item>
-					</DropdownMenu.Content>
-				</DropdownMenu.Root>
-			{:else}
-				<Button href="/login">Get Started</Button>
-			{/if}
-		{:catch error}
-			{console.error(error)}
+		{:else}
 			<Button href="/login">Get Started</Button>
-		{/await}
+		{/if}
 	</div>
 </nav>
