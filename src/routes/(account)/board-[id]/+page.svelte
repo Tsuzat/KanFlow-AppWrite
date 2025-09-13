@@ -11,7 +11,7 @@
 	import { toast } from 'svelte-sonner';
 	import SimpleTooltip from '$lib/components/custom/SimpleTooltip.svelte';
 	import NewSection from '$lib/components/custom/dialogs/NewSection.svelte';
-	import { useTasks } from '$lib/appwrite/db/tasks.svelte.js';
+	import { useTasks } from '$lib/appwrite/db/tasks.svelte';
 	import { overrideItemIdKeyNameBeforeInitialisingDndZones } from 'svelte-dnd-action';
 	import { flip } from 'svelte/animate';
 	overrideItemIdKeyNameBeforeInitialisingDndZones('$id');
