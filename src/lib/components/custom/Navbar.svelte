@@ -1,14 +1,9 @@
 <script lang="ts">
-	import { account } from '$lib/appwrite';
 	import AppLogo from './AppLogo.svelte';
 	import { Button, buttonVariants } from '../ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import Icons from '../icons';
 	import ModeToggler from './ModeToggler.svelte';
-	import { onMount } from 'svelte';
-	import type { Models } from 'appwrite';
-
-	let user = $state<Models.User | null>(null);
 
 	const navItems = [
 		{
@@ -28,15 +23,6 @@
 			title: 'FAQs'
 		}
 	];
-
-	onMount(async () => {
-		try {
-			user = await account.get();
-		} catch (error) {
-			//! TODO: Add a logger here
-			console.error(error);
-		}
-	});
 </script>
 
 <nav
@@ -78,12 +64,6 @@
 	</div>
 	<div class="flex items-center gap-4">
 		<ModeToggler />
-		{#if user}
-			<Button href="/home" size="icon" variant="ghost">
-				<Icons.person />
-			</Button>
-		{:else}
-			<Button href="/login">Get Started</Button>
-		{/if}
+		<Button href="/home">Get Started</Button>
 	</div>
 </nav>
