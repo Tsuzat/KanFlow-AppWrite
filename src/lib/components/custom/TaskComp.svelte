@@ -9,7 +9,7 @@
 	import Tag from './Tag.svelte';
 	import TaskPriority from './TaskPriority.svelte';
 	import { Separator } from '../ui/separator';
-	import { cn, formatDateWithCheck } from '$lib/utils';
+	import { cn, formatDateWithCheck, generateKeyBetween } from '$lib/utils';
 
 	interface Props {
 		task: Task;
@@ -22,12 +22,50 @@
 
 	let { task, section, syncing = $bindable() }: Props = $props();
 
-	function moveCardToSection(sec: Section) {
-		toast.warning('Not Implementation');
+	async function moveCardToSection(section: Section) {
+		const tasksInSections = tasks.tasks.filter((t) => t.section === section.$id);
+		const lastTaskOrder =
+			tasksInSections.length > 0 ? tasksInSections[tasksInSections.length - 1].order : null;
+		const newOrder = generateKeyBetween(lastTaskOrder, null);
+		task = { ...task, section: section.$id, order: newOrder };
+		syncing = true;
+		try {
+			await tasks.update(task);
+		} catch (error) {
+			//! TODO: Add logger here
+			console.error(error);
+			toast.error(`Failed to move task ${task.name} to section ${section.name}`);
+		} finally {
+			syncing = false;
+		}
 	}
 
-	function handleMoveUpDown(task: Task, dir: 'UP' | 'DOWN') {
-		toast.warning('Not Implementation');
+	async function handleMoveUpDown(task: Task, dir: 'UP' | 'DOWN') {
+		const tasksInSections = tasks.tasks.filter((t) => t.section === section.$id);
+		const taskIdx = tasksInSections.findIndex((t) => t.$id === task.$id);
+		let taskForExchange: Task;
+		if (taskIdx === -1) return;
+		if (dir === 'UP') {
+			if (taskIdx === 0) return;
+			taskForExchange = tasksInSections[taskIdx - 1];
+		} else {
+			if (taskIdx === tasksInSections.length - 1) return;
+			taskForExchange = tasksInSections[taskIdx + 1];
+		}
+		const tmpOrder = task.order;
+		task = { ...task, order: taskForExchange.order };
+		taskForExchange = { ...taskForExchange, order: tmpOrder };
+		syncing = true;
+		try {
+			await tasks.update(task);
+			await tasks.update(taskForExchange);
+		} catch (error) {
+			//! TODO: Add logger here
+			console.error(error);
+			toast.error(`Failed to move task ${task.name} ${dir === 'UP' ? 'up' : 'down'}`);
+		} finally {
+			syncing = false;
+		}
 	}
 
 	async function deleteTask() {
@@ -81,10 +119,7 @@
 						<DropdownMenu.SubContent>
 							{#if otherSections.length > 0}
 								{#each otherSections as sec (sec.$id)}
-									<DropdownMenu.Item
-										class="text-muted-foreground"
-										onclick={() => moveCardToSection(sec)}
-									>
+									<DropdownMenu.Item onclick={() => moveCardToSection(sec)}>
 										{sec.name}
 									</DropdownMenu.Item>
 								{/each}
