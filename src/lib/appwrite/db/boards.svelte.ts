@@ -3,6 +3,8 @@ import { getContext, setContext } from 'svelte';
 import { databases, ID } from '..';
 import { PUBLIC_BOARDS_TABLE_ID, PUBLIC_DATABASE_ID } from '$env/static/public';
 import { toast } from 'svelte-sonner';
+import { page } from '$app/state';
+import { goto } from '$app/navigation';
 
 /**
  * Board Interface which extends the Appwrite Document interface with following properties
@@ -86,6 +88,8 @@ class Boards {
 				loading: 'Deleting board...',
 				success: () => {
 					this.#boards = this.#boards.filter((b) => b.$id !== boardId);
+					// check if the current page is same as delete board
+					if (page.url.pathname.includes(boardId)) goto('/home');
 					return 'Deleted Board Successfully';
 				},
 				error: (err) => {

@@ -1,5 +1,4 @@
 import { AppwriteException, Query, type Models } from 'appwrite';
-import type { Board } from './boards.svelte';
 import { databases, ID } from '..';
 import { PUBLIC_DATABASE_ID, PUBLIC_SECTIONS_TABLE_ID } from '$env/static/public';
 import { toast } from 'svelte-sonner';
@@ -25,7 +24,7 @@ export interface Section extends Models.DefaultRow {
 	color?: string;
 	order: number;
 	status?: Status;
-	board: Board | string;
+	board: string;
 }
 
 class Sections {
@@ -42,6 +41,7 @@ class Sections {
 				tableId: PUBLIC_SECTIONS_TABLE_ID,
 				queries: [Query.equal('board', boardId)]
 			});
+			console.log('SECTIONS = ', res);
 			this.#sections = res.rows;
 		} catch (error) {
 			//! TODO: Add error logging here

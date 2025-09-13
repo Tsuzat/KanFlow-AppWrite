@@ -1,6 +1,4 @@
 import { AppwriteException, Query, type Models } from 'appwrite';
-import type { Board } from './boards.svelte';
-import type { Section } from './sections.svelte';
 import { getContext, setContext } from 'svelte';
 import { databases, ID } from '..';
 import { toast } from 'svelte-sonner';
@@ -27,8 +25,8 @@ export enum Priority {
 export interface Task extends Models.DefaultRow {
 	name: string;
 	description?: string;
-	board: Board | string;
-	section: Section | string;
+	board: string;
+	section: string;
 	due_date?: string;
 	order: string;
 	tags?: string[];
@@ -78,6 +76,8 @@ class Tasks {
 				rowId: ID.unique(),
 				data: task
 			});
+			res.section = task.section;
+			res.board = task.board;
 			this.#tasks = [...this.#tasks, res];
 		} catch (error) {
 			//! TODO: Add logger for error
@@ -98,6 +98,8 @@ class Tasks {
 				rowId: task.$id,
 				data: task
 			});
+			res.section = task.section;
+			res.board = task.board;
 			this.#tasks = this.#tasks.map((t) => (t.$id === task.$id ? res : t));
 		} catch (error) {
 			//! TODO: Add logger for error
